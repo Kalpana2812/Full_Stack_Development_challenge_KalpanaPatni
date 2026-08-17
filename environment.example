@@ -1,0 +1,40 @@
+# Peblo TV Mini — copy this file to .env for a non-Docker local setup.
+# Never commit real secret values.
+
+# Node/React CMS and viewer service
+NODE_ENV=development
+PORT=3000
+DATABASE_URL=mysql://peblo:CHANGE_ME@localhost:3306/peblo_tv
+JWT_SECRET=CHANGE_ME_TO_A_LONG_RANDOM_VALUE
+OAUTH_SERVER_URL=http://localhost:3000
+VITE_APP_ID=local
+VITE_OAUTH_PORTAL_URL=http://localhost:3000
+OWNER_OPEN_ID=local-admin
+OWNER_NAME=Local Admin
+BUILT_IN_FORGE_API_URL=
+BUILT_IN_FORGE_API_KEY=
+VITE_FRONTEND_FORGE_API_URL=
+VITE_FRONTEND_FORGE_API_KEY=
+VITE_APP_TITLE=Peblo TV Mini
+VITE_APP_LOGO=
+
+# Local CMS login (Docker-only development convenience; replace before any shared environment)
+LOCAL_ADMIN_MODE=true
+LOCAL_ADMIN_PASSWORD=CHANGE_ME
+
+# Node catalogue storage adapter
+CATALOGUE_STORAGE_BACKEND=memory
+
+# FastAPI/PostgreSQL implementation
+FASTAPI_DATABASE_URL=postgresql+asyncpg://peblo:CHANGE_ME@localhost:5432/peblo_tv_fastapi
+FASTAPI_ADMIN_TOKEN=CHANGE_ME
+FASTAPI_EDITOR_TOKEN=CHANGE_ME
+SEED_PATH=/data/seed_shows.json
+LOCAL_STORAGE_PATH=/var/lib/peblo
+
+# Cloudflare R2 (required only when CATALOGUE_STORAGE_BACKEND=r2 in FastAPI)
+R2_BUCKET=
+R2_ENDPOINT=
+R2_ACCESS_KEY_ID=
+R2_SECRET_ACCESS_KEY=
+PUBLIC_ASSET_BASE_URL=
