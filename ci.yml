@@ -1,0 +1,45 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 10
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm check
+      - run: pnpm test
+      - run: pnpm build
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: pip install -r fastapi/requirements.txt pytest
+      - run: PYTHONPATH=fastapi pytest -q fastapi/tests
+      - name: Build Node viewer/CMS image
+        run: docker build --file docker/Dockerfile.node --tag peblo-tv-mini-node:ci .
+      - name: Build FastAPI catalogue image
+        run: docker build --file fastapi/Dockerfile --tag peblo-tv-mini-fastapi:ci .
+  deploy:
+    name: Deploy (explicitly enabled environments only)
+    needs: verify
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main' && vars.ENABLE_DEPLOY == 'true'
+    runs-on: ubuntu-latest
+    environment: production
+    steps:
+      - name: Run protected deployment command
+        env:
+          DEPLOY_COMMAND: ${{ secrets.DEPLOY_COMMAND }}
+        run: |
+          test -n "$DEPLOY_COMMAND"
+          sh -lc "$DEPLOY_COMMAND"

@@ -1,0 +1,7 @@
+# Source inspection
+
+The supplied Word brief defines the required system behavior, artwork constraints, and the expected seed dataset characteristics: 95 episode records across eight shows, allowed editorial reference values, and deliberately imperfect input data that must appear in the CMS validation report.
+
+The public `reference.json` preview confirms four sections (`featured`, `series`, `minisodes`, and `songs`), fifteen permitted categories, and two supported languages (`en` and `hi`). It specifies 200 KB as the maximum file size for poster, banner, and thumbnail uploads; 2:3 as the poster ratio with 600×900 target dimensions; and 16:9 with targets of 1280×720 and 640×360 for banners and thumbnails respectively. It also confirms that Season 0 is trailer-only and language variants sharing `content_group` must collapse into one catalogue entry.
+
+The public `seed_shows.json` preview confirms the seed is an array of episode rows. Each visible row carries a stable episode identifier, show metadata, section, categories, synopsis, season and episode number, duration in seconds, language, `content_group`, publishing status, and an `artwork_available` array. The first visible programme is `Moti's Many Lives`, with English/Hindi variants demonstrating the intended `content_group` collapse. The full JSON file will be imported directly before seeding so the deliberate quality issues remain traceable in the CMS report.

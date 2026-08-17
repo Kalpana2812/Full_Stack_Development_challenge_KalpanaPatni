@@ -6,6 +6,7 @@ services:
       - .:/workspace
       - node-modules:/workspace/node_modules
       - pnpm-store:/pnpm/store
+      - peblo-catalogue-data:/var/lib/peblo
       - local-artwork-data:/var/lib/peblo/artwork
     command: sh -c "corepack enable && pnpm config set store-dir /pnpm/store && pnpm install --frozen-lockfile --prefer-offline && pnpm drizzle-kit migrate && pnpm dev"
     environment:
@@ -16,7 +17,8 @@ services:
       VITE_OAUTH_PORTAL_URL: http://localhost:3000
       OWNER_OPEN_ID: local-admin
       OWNER_NAME: Local Admin
-      CATALOGUE_STORAGE_BACKEND: memory
+      CATALOGUE_STORAGE_BACKEND: local
+      LOCAL_STORAGE_PATH: /var/lib/peblo
       LOCAL_ARTWORK_STORAGE_PATH: /var/lib/peblo/artwork
       LOCAL_ADMIN_MODE: "true"
       LOCAL_ADMIN_PASSWORD: peblo-local-admin
@@ -27,6 +29,7 @@ services:
         condition: service_healthy
       fastapi:
         condition: service_healthy
+
   db:
     image: mysql:8.4
     environment:
@@ -43,6 +46,7 @@ services:
       retries: 20
     volumes:
       - mysql-data:/var/lib/mysql
+
   postgres:
     image: postgres:16-alpine
     environment:
@@ -58,6 +62,7 @@ services:
       retries: 20
     volumes:
       - postgres-data:/var/lib/postgresql/data
+
   fastapi:
     build:
       context: .
@@ -80,10 +85,13 @@ services:
       interval: 10s
       timeout: 3s
       retries: 12
+
 volumes:
   mysql-data:
   postgres-data:
   fastapi-data:
+  peblo-catalogue-data:
   local-artwork-data:
   node-modules:
   pnpm-store:
+

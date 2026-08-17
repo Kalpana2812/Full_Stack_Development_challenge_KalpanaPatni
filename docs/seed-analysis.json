@@ -1,0 +1,165 @@
+{
+  "rows": 95,
+  "shows": [
+    {
+      "slug": "motis-many-lives",
+      "title": "Moti's Many Lives",
+      "rows": 18,
+      "seasons": [
+        0,
+        1
+      ],
+      "categories": [
+        "adventure",
+        "india",
+        "friendship"
+      ]
+    },
+    {
+      "slug": "tiny-tales-banyan-dadi",
+      "title": "Tiny Tales by Banyan Dadi",
+      "rows": 17,
+      "seasons": [
+        0,
+        1
+      ],
+      "categories": [
+        "stories",
+        "values",
+        "folk"
+      ]
+    },
+    {
+      "slug": "discover-india-with-moti",
+      "title": "Discover India with Moti",
+      "rows": 10,
+      "seasons": [
+        1
+      ],
+      "categories": [
+        "travel",
+        "india",
+        "learning"
+      ]
+    },
+    {
+      "slug": "peblo-songs",
+      "title": "Peblo Songs",
+      "rows": 16,
+      "seasons": [
+        1
+      ],
+      "categories": [
+        "music",
+        "singalong"
+      ]
+    },
+    {
+      "slug": "peblo-songs-lyrical",
+      "title": "Peblo Songs — Lyrical",
+      "rows": 10,
+      "seasons": [
+        1
+      ],
+      "categories": [
+        "music",
+        "reading"
+      ]
+    },
+    {
+      "slug": "curious-cubs",
+      "title": "Curious Cubs",
+      "rows": 8,
+      "seasons": [
+        1
+      ],
+      "categories": [
+        "science",
+        "nature"
+      ]
+    },
+    {
+      "slug": "number-nest",
+      "title": "Number Nest",
+      "rows": 8,
+      "seasons": [
+        1
+      ],
+      "categories": [
+        "maths",
+        "learning"
+      ]
+    },
+    {
+      "slug": "rhyme-rangers",
+      "title": "Rhyme Rangers",
+      "rows": 8,
+      "seasons": [
+        1
+      ],
+      "categories": [
+        "music",
+        "language"
+      ]
+    }
+  ],
+  "issueCount": 12,
+  "issues": [
+    {
+      "type": "missing_artwork",
+      "episodeId": "ep_0036",
+      "artwork": []
+    },
+    {
+      "type": "missing_section",
+      "episodeId": "ep_0085"
+    },
+    {
+      "type": "missing_section",
+      "episodeId": "ep_0086"
+    },
+    {
+      "type": "missing_section",
+      "episodeId": "ep_0087"
+    },
+    {
+      "type": "missing_section",
+      "episodeId": "ep_0088"
+    },
+    {
+      "type": "missing_section",
+      "episodeId": "ep_0089"
+    },
+    {
+      "type": "missing_section",
+      "episodeId": "ep_0090"
+    },
+    {
+      "type": "missing_section",
+      "episodeId": "ep_0091"
+    },
+    {
+      "type": "missing_section",
+      "episodeId": "ep_0092"
+    },
+    {
+      "type": "duplicate_content_group_language",
+      "episodeId": "ep_9001",
+      "previousEpisodeId": "ep_0004"
+    },
+    {
+      "type": "missing_artwork",
+      "episodeId": "ep_0093",
+      "artwork": [
+        "thumbnail"
+      ]
+    },
+    {
+      "type": "missing_artwork",
+      "episodeId": "ep_0094",
+      "artwork": [
+        "thumbnail"
+      ]
+    }
+  ]
+}
